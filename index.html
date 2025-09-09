@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SAMPRITI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            scroll-padding-top: 70px;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+            font-size: 1.1rem;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: white !important;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        /* Half height carousel */
+        #home-carousel {
+            margin-top: 56px;
+        }
+        
+        .carousel-item {
+            height: 50vh;
+            min-height: 300px;
+            overflow: hidden;
+        }
+        
+        .carousel-caption {
+            background: transparent;
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        
+        .carousel-caption h2 {
+            font-size: 1.5rem;
+        }
+        
+        .carousel-caption p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        /* About section */
+        .about-content {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Research domains */
+        .domain-card {
+            text-align: center;
+            padding: 20px 15px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .domain-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .domain-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Team section */
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .team-img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 5px solid var(--light-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .scholar-details {
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+        
+        .scholar-details p {
+            margin-bottom: 5px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            height: 36px;
+            width: 36px;
+            background-color: var(--primary-color);
+            color: white !important;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            margin: 3px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .director-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .director-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--secondary-color);
+            margin: 0 auto 20px;
+        }
+        
+        .project-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 25px;
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-img {
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .publication-item {
+            padding: 15px;
+            border-left: 3px solid var(--secondary-color);
+            background-color: #f8f9fa;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .news-item {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+        
+        .news-date {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            font-size: 20px;
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+            font-size: 1.2rem;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0 15px;
+        }
+        
+        /* Gallery section */
+        .gallery-item {
+            overflow: hidden;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Blog section */
+        .blog-card {
+            transition: transform 0.3s;
+            margin-bottom: 25px;
+            height: 100%;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-img {
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        /* Collaboration section */
+        .collaboration-logo {
+            text-align: center;
+            padding: 15px;
+            height: 70px;
+            margin: 15px;
+            filter: grayscale(0%);
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+        
+        .collaboration-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .funding-agency {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .funding-agency:hover {
+            transform: translateY(-5px);
+        }
+        
+        .agency-logo {
+            height: 70px;
+            margin-bottom: 15px;
+        }
+
+        /* Funding agency logos */
+        .agency-logo {
+            max-width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto;
+            opacity: 1;
+        }
+
+        /* Collaborating institutions logos */
+        .collaboration-logo {
+            max-width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto;
+            opacity: 1;
+            align: center;
+            padding: 15px;
+
+        }
+
+        /* .collaboration-logo:hover {
+            transform: scale(1.1);
+        } */
+
+        h6 {
+            font-weight: 600;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+        
+        /* Mobile-specific styles */
+        @media (max-width: 767.98px) {
+            .navbar-brand {
+                font-size: 1rem;
+            }
+            
+            .navbar-nav {
+                text-align: center;
+                padding: 10px 0;
+            }
+            
+            .nav-link {
+                padding: 0.5rem;
+                margin: 2px 0;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 25px;
+            }
+            
+            .carousel-item {
+                height: 40vh;
+                min-height: 250px;
+            }
+            
+            .carousel-caption {
+                padding: 10px;
+            }
+            
+            .carousel-caption h2 {
+                font-size: 1.2rem;
+                margin-bottom: 5px;
+            }
+            
+            .carousel-caption p {
+                font-size: 0.8rem;
+                margin-bottom: 8px;
+            }
+            
+            .carousel-caption .btn {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+            }
+            
+            .director-card {
+                padding: 15px;
+            }
+            
+            .director-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .team-img {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .about-content {
+                padding: 20px 15px;
+            }
+            
+            .project-img, .blog-img {
+                height: 150px;
+            }
+            
+            .gallery-img {
+                height: 180px;
+            }
+            
+            .publication-item {
+                padding: 12px;
+            }
+            
+            footer .col-md-4, footer .col-md-2 {
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            
+            footer .social-links {
+                justify-content: center;
+            }
+            
+            .input-group {
+                flex-direction: column;
+            }
+            
+            .input-group .btn {
+                margin-top: 10px;
+                border-radius: 5px;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .navbar-brand {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .carousel-item {
+                height: 35vh;
+                min-height: 200px;
+            }
+            
+            .carousel-caption h2 {
+                font-size: 1rem;
+            }
+            
+            .carousel-caption p {
+                display: none;
+            }
+            
+            .director-img {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .team-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .domain-icon {
+                font-size: 2rem;
+            }
+            
+            .agency-logo {
+                max-width: 120px;
+            }
+            
+            .collaboration-logo {
+                max-width: 100px;
+                margin: 8px;
+            }
+        }
+        
+        /* Fix for navbar toggler alignment */
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        /* Ensure proper spacing in mobile navbar */
+        .navbar-collapse {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 5px;
+        }
+    
+
+
+/* Custom spacing above carousel for lab name & tagline */
+
+
+/* Adjust carousel size and centering */
+
+
+/* Custom spacing above carousel for lab name & tagline */
+.carousel-container {
+    margin-top: 150px; /* Increased space for lab name/tagline */
+    text-align: center;
+}
+
+/* Adjust carousel size and centering */
+#home-carousel {
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+}
+.lab-heading {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.lab-tagline {
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+    </style>
+</head>
+
+<body data-bs-offset="70" data-bs-spy="scroll" data-bs-target="#navbar">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-flask"></i> SAMPRITI</a>
+            <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#domains">Research Domains</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#research">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#publications">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#news">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#collaborations">Collaborations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Rest of your HTML content remains the same -->
+    <!-- Home Section with Half Height Carousel -->
+    <div class="carousel-container">
+        <div class="lab-heading">SAMPRITI: Sustainable, data And Memory-centric PRocessIng for nexT generation Innovation</div>
+        <div class="lab-tagline">Advancing research through brotherhood innovation and collaboration for the sustainable society</div>
+        <div class="carousel slide carousel-fade" data-bs-ride="carousel" id="home-carousel">
+            <div class="carousel-indicators">
+                <button class="active" data-bs-slide-to="0" data-bs-target="#home-carousel" type="button"></button>
+                <button data-bs-slide-to="1" data-bs-target="#home-carousel" type="button"></button>
+                <button data-bs-slide-to="2" data-bs-target="#home-carousel" type="button"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img alt="Research Lab" class="d-block w-100" src="img\carousel\1.jpg" />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Welcome to Our Research Group</h2>
+                        <p>Advancing knowledge through innovative research and collaboration</p>
+                        <!---<a class="btn btn-primary mt-3" href="#about">Learn More About Us</a>-->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img alt="Team Discussion" class="d-block w-100" src="img\carousel\2.jpg" />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Interdisciplinary Collaboration</h2>
+                        <p>Working across disciplines to solve complex problems</p>
+                        <!---<a class="btn btn-primary mt-3" href="#team">Meet Our Team</a>--->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img alt="Research Equipment" class="d-block w-100" src="img\carousel\3.jpg" />
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>State-of-the-Art Facilities</h2>
+                        <p>Utilizing cutting-edge technology for groundbreaking research</p>
+                        <!---<a class="btn btn-primary mt-3" href="#gallery">View Our Facilities</a>--->
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#home-carousel" type="button">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#home-carousel" type="button">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Our Lab</h2>
+            <div class="about-content">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3>Our Mission</h3>
+                        <p>We are dedicated to advancing knowledge through innovative research and collaboration across disciplines. Our lab focuses on solving complex research problems in emerging computational paradigms, AI/ML for tiny system etc</p>
+                        <p>Founded in 2010, our research group has grown to include over 20 researchers working on cutting-edge projects with real-world applications.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>Our Vision</h3>
+                        <p>We envision a future where data-driven approaches transform our understanding of biological systems and lead to breakthroughs in medicine, agriculture, and environmental science.</p>
+                        <p>Our work bridges the gap between theoretical computer science and practical biological applications, creating tools and insights that benefit the scientific community and society at large.</p>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-4 text-center">
+                        <h2>4+</h2>
+                        <p>Research Projects</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h2>10+</h2>
+                        <p>Publications</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h2>10+</h2>
+                        <p>Team Members</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Research Domains Section -->
+    <section class="bg-light" id="domains">
+        <div class="container">
+            <h2 class="section-title">Research Domains</h2>
+            <div class="row">
+                <!-- NMP / PIM -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-memory"></i>
+                        </div>
+                        <h4>NMP / PIM</h4>
+                        <p>Exploring Near-Memory and Processing-in-Memory architectures to reduce data movement and enable high-performance, energy-efficient computing.</p>
+                    </div>
+                </div>
+                <!-- 3D NoC -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h4>3D NoC</h4>
+                        <p>Designing 3D Network-on-Chip architectures to enhance scalability, performance, and communication efficiency in modern multi-core systems.</p>
+                    </div>
+                </div>
+                <!-- Cloud / Edge Computing -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h4>Cloud / Edge Computing</h4>
+                        <p>Leveraging cloud and edge platforms for scalable, distributed, and real-time data processing and applications.</p>
+                    </div>
+                </div>
+                <!-- IoT -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h4>Internet of Things (IoT)</h4>
+                        <p>Building intelligent and connected systems that integrate sensing, communication, and analytics for real-world applications.</p>
+                    </div>
+                </div>
+                <!-- Quantum Computing -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h4>Quantum Computing</h4>
+                        <p>Developing algorithms and architectures that harness quantum mechanics for solving complex computational challenges.</p>
+                    </div>
+                </div>
+                <!-- Security -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="domain-card">
+                        <div class="domain-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Security</h4>
+                        <p>Ensuring data privacy, system integrity, and resilience through advanced security protocols and architectures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team Section -->
+    <section id="team">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <!-- Lab Director -->
+            <div class="director-card">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center">
+                        <img alt="Lab Director" class="director-img" src="img\team\mg.jpg" />
+                    </div>
+                    <div class="col-md-8">
+                        <h3>Dr. Manojit Ghose</h3>
+                        <p class="text-muted">Lab Director &amp; Principal Investigator</p>
+                        <p>Dr. Ghose hail from Bilasipara town in the state of Assam, India. He joined IIITG in July 2019 after completing my Ph.D. (in CSE) from IIT Guwahati. He earned his B.E. in CSE from Jorhat Engineering College (Govt. of Assam) under
+                            Dibrugarh University, followed his M.Tech. (in CSE) from IIT Guwahati. His area of research experties are in - NMP, Edge/Cloud, IMP/IoT, Program Analysis, Quantum computing, AI/ML for system, Security etc.</p>
+                        <div class="social-links">
+                            <a href="linkedin.com/in/gmanojit"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="https://scholar.google.com/citations?user=ny1CGx4AAAAJ&amp;hl=en&amp;oi=ao"><i class="fab fa-google-scholar"></i></a>
+                            <a href="manojit@iiitg.ac.in"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Members -->
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img alt="Team Member" class="team-img" src="img\team\satanu.jpg" />
+                        <h4>Satanu Maity</h4>
+                        <p class="text-muted">Senior Research Fellow</p>
+                        <div class="scholar-details">
+                            <p><strong>Enrollment Year:</strong> 2021</p>
+                            <p><strong>Research Area:</strong> Compiler-assisted offloading in PiM/NMP</p>
+                            <p><strong>Scholar Type:</strong> Full Time Institute Fellow</p>
+                            <p><strong>Publications:</strong> 5</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://in.linkedin.com/in/satanu-maity-79a00410b"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/satanu01"><i class="fab fa-github"></i></a>
+                            <a href="https://scholar.google.com/citations?user=BoeeBc4AAAAJ&amp;hl=en"><i class="fab fa-google-scholar"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img alt="Team Member" class="team-img" src="img\team\akhirul.jpg" />
+                        <h4>Akhirul Islam</h4>
+                        <p class="text-muted">Senior Research Fellow</p>
+                        <div class="scholar-details">
+                            <p><strong>Enrollment Year:</strong> 2021</p>
+                            <p><strong>Research Area:</strong> Scheduling in MEC</p>
+                            <p><strong>Scholar Type:</strong> Part Time</p>
+                            <p><strong>Publications:</strong> 6</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://in.linkedin.com/in/akhirul-islam"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/akhiruli/"><i class="fab fa-github"></i></a>
+                            <a href="https://scholar.google.com/citations?user=rp1-DNsAAAAJ&amp;hl=en"><i class="fab fa-google-scholar"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img alt="Team Member" class="team-img" src="img\team\ashutosh.jpg" />
+                        <h4>Asutosh Kumar Sarma</h4>
+                        <p class="text-muted">PhD Candidate</p>
+                        <div class="scholar-details">
+                            <p><strong>Enrollment Year:</strong> 2022</p>
+                            <p><strong>Research Area:</strong> TBD</p>
+                            <p><strong>Scholar Type:</strong> Self Financed, Full Time</p>
+                            <p><strong>Publications:</strong> 00</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="https://sites.google.com/iiitg.ac.in/asutosh-sarma/"><i class="fab fa-google-scholar"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img alt="Team Member" class="team-img" src="img\team\Simran.jpg" />
+                        <h4>Simran Preet Kaur</h4>
+                        <p class="text-muted">PhD Candidate</p>
+                        <div class="scholar-details">
+                            <p><strong>Enrollment Year:</strong> 2024</p>
+                            <p><strong>Research Area:</strong> TBD</p>
+                            <p><strong>Scholar Type:</strong> Visvesvaraya PhD Scheme, Full Time</p>
+                            <p><strong>Publications:</strong> 00</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/simran-preet-kaur-ba84711b1/"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="https://scholar.google.com/citations?user=4pvSJw4AAAAJ&amp;hl=en"><i class="fab fa-google-scholar"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img alt="Team Member" class="team-img" src="img/team/panchanan.jpg" />
+                        <h4>Er Panchanan Nath</h4>
+                        <p class="text-muted">PhD Candidate</p>
+                        <div class="scholar-details">
+                            <p><strong>Enrollment Year:</strong> 20225</p>
+                            <p><strong>Research Area:</strong> TBD</p>
+                            <p><strong>Scholar Type:</strong> Project Stuff, Full Time </p>
+                            <p><strong>Publications:</strong> 00</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://in.linkedin.com/in/er-panchanan-nath-89a36317a"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/PanchananNath"><i class="fab fa-github"></i></a>
+                            <a href="https://scholar.google.com/citations?user=YSPfwT8AAAAJ&amp;hl=en"><i class="fab fa-google-scholar"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-member">
+                        <img alt="Team Member" class="team-img" src="img\team\you.jpg" />
+                        <h4>You, Yes you!!</h4>
+                        <p class="text-muted">Potential PhD candidate</p>
+                        <div class="scholar-details">
+                            <p><strong>Enrollment Year:</strong> 2025</p>
+                            <p><strong>Research Area:</strong> TBD</p>
+                            <p><strong>Scholar Type:</strong> TBD</p>
+                            <p><strong>Publications:</strong> 00</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-google-scholar"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Research/Projects Section -->
+    <section class="bg-light" id="research">
+        <div class="container">
+            <h2 class="section-title">Funded Research Projects</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card project-card">
+                        <img alt="Project Image" class="card-img-top project-img" src="#" />
+                        <div class="card-body">
+                            <h5 class="card-title">Open RAN for Next-Gen 6G Communications Using AI-based Quantum Computing</h5>
+                            <p class="card-text"></p>
+                            <a class="btn btn-sm btn-outline-primary" href="#">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card project-card">
+                        <img alt="Project Image" class="card-img-top project-img" src="#" />
+                        <div class="card-body">
+                            <h5 class="card-title">Secure Execution of Sensitive Applications by Eliminating Cache Side Channel Attacks using Near Memory Computation Paradigm</h5>
+                            <p class="card-text"></p>
+                            <a class="btn btn-sm btn-outline-primary" href="#">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card project-card">
+                        <img alt="Project Image" class="card-img-top project-img" src="#" />
+                        <div class="card-body">
+                            <h5 class="card-title">Design of Automated, Self-Sustaining Collision Avoidance System for Remote Railway Elephant Corridors</h5>
+                            <p class="card-text"></p>
+                            <a class="btn btn-sm btn-outline-primary" href="#">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card project-card">
+                        <img alt="Project Image" class="card-img-top project-img" src="#" />
+                        <div class="card-body">
+                            <h5 class="card-title">Efficient Execution of User Applications on Mobile Edge Computing Platform</h5>
+                            <p class="card-text"></p>
+                            <a class="btn btn-sm btn-outline-primary" href="#">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Publications Section -->
+    <section id="publications">
+        <div class="container">
+            <h2 class="section-title">Publications</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="publication-item">
+                        <h5>Deep learning approaches for genomic variant calling from sequencing data</h5>
+                        <p class="text-muted">Johnson, S., Chen, M., &amp; Rodriguez, E. (2023). Nature Methods, 20(3), 345-357.</p>
+                        <p class="fst-italic">This paper presents a novel deep learning framework that improves the accuracy of variant calling from next-generation sequencing data by 27% compared to existing methods.</p>
+                        <a class="btn btn-sm btn-outline-secondary" href="#">PDF</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="#">BibTeX</a>
+                    </div>
+                    <div class="publication-item">
+                        <h5>Network-based integration of multi-omics data for cancer subtype identification</h5>
+                        <p class="text-muted">Chen, M., Anderson, L., &amp; Wilson, J. (2022). Cell Systems, 15(2), 125-139.</p>
+                        <p class="fst-italic">We developed a network-based approach that integrates genomic, transcriptomic, and proteomic data to identify novel cancer subtypes with distinct clinical outcomes.</p>
+                        <a class="btn btn-sm btn-outline-secondary" href="#">PDF</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="#">BibTeX</a>
+                    </div>
+                    <div class="publication-item">
+                        <h5>Transformer architectures for protein function prediction</h5>
+                        <p class="text-muted">Rodriguez, E., Kim, D., &amp; Johnson, S. (2022). Bioinformatics, 38(5), 1321-1328.</p>
+                        <p class="fst-italic">This work adapts transformer architectures originally developed for natural language processing to predict protein function from sequence alone, achieving state-of-the-art performance.</p>
+                        <a class="btn btn-sm btn-outline-secondary" href="#">PDF</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="#">BibTeX</a>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a class="btn btn-primary" href="#">View All Publications</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- News Section -->
+    <section class="bg-light" id="news">
+        <div class="container">
+            <h2 class="section-title">News &amp; Updates</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="news-item">
+                        <h5>New NIH Grant Awarded</h5>
+                        <p class="news-date">June 15, 2023</p>
+                        <p>Our research group has been awarded a $2.5M NIH grant to continue our work on AI-driven drug discovery. This funding will support our research for the next four years.</p>
+                    </div>
+                    <div class="news-item">
+                        <h5>Paper Accepted at Nature Communications</h5>
+                        <p class="news-date">May 3, 2023</p>
+                        <p>Our paper on "Network-based integration of multi-omics data for cancer subtype identification" has been accepted for publication in Nature Communications.</p>
+                    </div>
+                    <div class="news-item">
+                        <h5>Keynote Presentation at BioML 2023</h5>
+                        <p class="news-date">April 18, 2023</p>
+                        <p>Dr. Johnson gave a keynote presentation on "The Future of AI in Biology" at the International Conference on Machine Learning in Computational Biology (BioML 2023).</p>
+                    </div>
+                    <div class="news-item">
+                        <h5>New Lab Members Join</h5>
+                        <p class="news-date">January 10, 2023</p>
+                        <p>We welcome two new PhD students and a postdoctoral researcher to our group. They will be working on projects related to single-cell genomics and explainable AI in biology.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Collaborations Section -->
+    <section id="collaborations">
+        <div class="container">
+            <h2 class="section-title">Collaborations &amp; Funding</h2>
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <p class="text-center lead">Our research is made possible through collaborations with leading institutions and generous support from funding agencies.</p>
+                </div>
+            </div>
+            <!-- Funding Agencies -->
+            <h3 class="text-center mb-4">Funding Agencies</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-3 text-center mb-4">
+                    <img alt="MHRD Logo" class="agency-logo" src="img\funding\mhrd.png" />
+                    <h6 class="mt-2">MHRD</h6>
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <img alt="ASTEC Logo" class="agency-logo" src="img\funding\ASTEC.jpg" />
+                    <h6 class="mt-2">ASTEC</h6>
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <img alt="SPARC Logo" class="agency-logo" src="img\funding\sparc.jpg" />
+                    <h6 class="mt-2">SPARC</h6>
+                </div>
+            </div>
+            <h3 class="text-center mb-4 mt-5">Collaborating Institutions</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-3 text-center mb-4">
+                    <img alt="Colorado State University, US" class="collaboration-logo" src="img\collaborations\csu.png" />
+                    <h6 class="mt-2">Colorado State University, USA</h6>
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <img alt="Indian Institute of Technology Guwahati, India" class="collaboration-logo" src="img\collaborations\iitg.png" />
+                    <h6 class="mt-2">IIT Guwahati, India</h6>
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <img alt="Indian Institute of Technology Jodhpur, India" class="collaboration-logo" src="img\collaborations\iitj.jpg" />
+                    <h6 class="mt-2">IIT Jodhpur, India</h6>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card p-4">
+                        <h4 class="text-center mb-4">Partnership Opportunities</h4>
+                        <p>We are always interested in exploring new collaborations with academic institutions, industry partners, and research organizations. Our expertise in computational biology, machine learning, and data science can complement experimental
+                            approaches and lead to innovative solutions.</p>
+                        <p class="text-center mt-3">
+                            <a class="btn btn-primary" href="#contact">Contact Us to Collaborate</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Gallery Section -->
+    <section class="bg-light" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Lab Gallery</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img alt="Lab Image" class="gallery-img" src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80" />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img alt="Lab Image" class="gallery-img" src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80" />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img alt="Lab Image" class="gallery-img" src="https://images.unsplash.com/photo-1581093458791-9d33f465dea5?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80" />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img alt="Lab Image" class="gallery-img" src="https://images.unsplash.com/photo-1581092445556-efeab41c22b4?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80" />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img alt="Lab Image" class="gallery-img" src="https://images.unsplash.com/photo-1581092580896-70bb5e5f6773?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80" />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img alt="Lab Image" class="gallery-img" src="https://images.unsplash.com/photo-1581094271909-89be-38e5d692c4a?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=80" />
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a class="btn btn-primary" href="#">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="bg-light" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card p-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="contact-info">
+                                    <p><i class="fas fa-map-marker-alt contact-icon"></i> IIITG, Academic Building, Room 209</p>
+                                    <p><i class="fas fa-phone contact-icon"></i> +91-0000000000</p>
+                                    <p><i class="fas fa-envelope contact-icon"></i> sampriti@gmail.com</p>
+                                    <p><i class="fas fa-clock contact-icon"></i> Monday-Friday: 9am-5pm</p>
+                                </div>
+                                <div class="social-links mb-4">
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-github"></i></a>
+                                    <a href="#"><i class="fab fa-google-scholar"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Visit Our Lab</h5>
+                                <p>We're always interested in collaborating with talented researchers. Feel free to reach out to discuss potential opportunities.</p>
+                                <div class="mt-4">
+                                    <h5>Join Our Team</h5>
+                                    <p>We have openings for PhD students, postdocs, and research interns. For endless oppotunites send your CV to sampriti@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <iframe allowfullscreen="" height="300" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4068.8127274918456!2d91.55941051146328!3d26.08123727705724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5987e09da847%3A0xfc90e6da1b4547c1!2sIndian%20Institute%20of%20Information%20Technology%20Guwahati%20(IIITG)!5e1!3m2!1sen!2sin!4v1757236753006!5m2!1sen!2sin"
+                        style="border:0; border-radius: 8px;" width="100%"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>SAMPRITI </h5>
+                    <p>Advancing knowledge through innovative research and collaboration.</p>
+                </div>
+                <div class="col-md-2">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#domains">Research Domains</a></li>
+                        <li>
+                            <a href#team "=" ">Team</a></li>
+</ul>
+</div>
+<div class="col-md-2 ">
+<h5>Resources</h5>
+<ul class="list-unstyled ">
+<li><a href="#research ">Projects</a></li>
+<li><a href="#publications ">Publications</a></li>
+<li><a href="#news ">News</a></li>
+<li><a href="#gallery ">Gallery</a></li>
+</ul>
+</div>
+<div class="col-md-4 ">
+<h5>Connect</h5>
+<div class="social-links ">
+<a href="# "><i class="fab fa-twitter "></i></a>
+<a href="# "><i class="fab fa-linkedin-in "></i></a>
+<a href="# "><i class="fab fa-github "></i></a>
+<a href="# "><i class="fab fa-google-scholar "></i></a>
+</div>
+<p class="mt-3 ">Subscribe to our newsletter:</p>
+<div class="input-group ">
+<input class="form-control " placeholder="Your email " type="email "/>
+<button class="btn btn-primary " type="button ">Subscribe</button>
+</div>
+</div>
+</div>
+<hr class="mt-4 mb-4 " style="border-color: rgba(255,255,255,0.1); "/>
+<div class="text-center ">
+<p class="mb-0 ">© 2025 SAMPRITI. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<!-- Back to Top Button -->
+<a class="back-to-top " href="# "><i class="fas fa-arrow-up "></i></a>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js "></script>
+<script>
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
