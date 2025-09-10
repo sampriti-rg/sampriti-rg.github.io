@@ -1,7 +1,6 @@
 # Welcome to the **SAMPRITI Research Group**
 
- 
-This repository contains the source code for the official website of the **SAMPRITI (Sustainable, data And Memory-centric PRocessIng for nexT generation Innovation)**.
+ **SAMPRITI (Sustainable, data And Memory-centric PRocessIng for nexT generation Innovation)**.
 
 ---
 
@@ -100,3 +99,4 @@ This project is licensed under the **MIT License** – you are free to use, modi
 ---
 
 ⭐ If you like this project, don’t forget to **star the repo** and share it with your network!
+
