@@ -88,7 +88,7 @@ Then enable GitHub Pages in repo settings.
 - 📍 Location: IIITG, Academic Building, Room 209  
 - 📞 Phone: +91-0000000000  
 - 📧 Email: [sampriti.rg@gmail.com](mailto:sampriti.rg@gmail.com)  
-- 🌐 Website: *[(to be updated with live link)](https://sampriti-rg.github.io/)*  
+- 🌐 Website: *https://sampriti-rg.github.io/*  
 
 ---
 
@@ -99,4 +99,5 @@ This project is licensed under the **MIT License** – you are free to use, modi
 ---
 
 ⭐ If you like this project, don’t forget to **star the repo** and share it with your network!
+
 
