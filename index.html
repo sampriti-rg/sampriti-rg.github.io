@@ -12,7 +12,7 @@
     <style>
 
 
-    :root {
+   :root {
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
             --accent-color: #e74c3c;
@@ -56,14 +56,14 @@
             position: relative;
             padding-bottom: 15px;
             margin-bottom: 30px;
-            text-align: left; /* Left aligned section titles */
+            text-align: left;
         }
         
         .section-title:after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0; /* Left aligned underline */
+            left: 0;
             transform: none;
             width: 60px;
             height: 3px;
@@ -100,7 +100,7 @@
         /* Custom spacing above carousel for lab name & tagline */
         .carousel-container {
             margin-top: 150px;
-            text-align: center; /* Only center the lab name and carousel */
+            text-align: center;
         }
 
         /* Adjust carousel size and centering */
@@ -120,7 +120,7 @@
         }
 
         .carousel-caption {
-            background: transparent; /* Remove background color */
+            background: transparent;
             padding: 20px;
             border-radius: 8px;
             max-width: 80%;
@@ -132,13 +132,13 @@
         .carousel-caption h2 {
             font-size: 1.8rem;
             margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Add text shadow for better readability */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
         }
 
         .carousel-caption p {
             font-size: 1rem;
             margin-bottom: 15px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Add text shadow for better readability */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
         }
 
         .carousel-item.active .carousel-caption {
@@ -170,7 +170,7 @@
             border-radius: 15px;
             padding: 30px 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: left; /* Ensure left alignment */
+            text-align: left;
         }
 
         /* Research domains */
@@ -215,7 +215,7 @@
         .scholar-details {
             font-size: 0.85rem;
             margin-top: 10px;
-            text-align: center; /* Left aligned text */
+            text-align: center;
         }
 
         .scholar-details p {
@@ -247,7 +247,7 @@
             padding: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
-            text-align: left; /* Left aligned text */
+            text-align: left;
         }
 
         .director-img {
@@ -263,7 +263,7 @@
             transition: transform 0.3s, box-shadow 0.3s;
             margin-bottom: 25px;
             height: 100%;
-            text-align: left; /* Left aligned text */
+            text-align: left;
         }
 
         .project-card:hover {
@@ -282,13 +282,13 @@
             background-color: #f8f9fa;
             margin-bottom: 20px;
             border-radius: 0 5px 5px 0;
-            text-align: left; /* Left aligned text */
+            text-align: left;
         }
 
         .news-item {
             border-bottom: 1px solid #eee;
             padding: 15px 0;
-            text-align: left; /* Left aligned text */
+            text-align: left;
         }
 
         .news-date {
@@ -299,7 +299,7 @@
 
         .contact-info {
             margin-bottom: 20px;
-            text-align: left; /* Left aligned text */
+            text-align: left;
         }
 
         .contact-icon {
@@ -335,7 +335,7 @@
             background-color: var(--dark-color);
             color: white;
             padding: 30px 0 15px;
-            text-align: left; /* Left aligned text */
+            text-align: left;
         }
 
         /* Gallery section */
@@ -362,7 +362,7 @@
             transition: transform 0.3s;
             margin-bottom: 25px;
             height: 100%;
-            text-align: left; /* Left aligned text */
+            text-align: left;
         }
 
         .blog-card:hover {
@@ -378,7 +378,6 @@
         /* Collaboration section */
         .collaboration-logo {
             text-align: center;
-            align: center;
             padding: 15px;
             height: 70px;
             margin: 15px;
@@ -426,7 +425,6 @@
             display: block;
             margin: 0 auto 10px auto;
             opacity: 1;
-            align: center;
             padding: 15px;
         }
 
@@ -517,7 +515,7 @@
             
             footer .col-md-4, footer .col-md-2 {
                 margin-bottom: 20px;
-                text-align: left; /* Left aligned text */
+                text-align: left;
             }
             
             footer .social-links {
@@ -544,6 +542,19 @@
             
             .lab-tagline {
                 font-size: 1rem;
+            }
+            
+            /* Center collaboration logos in mobile view */
+            .collaboration-logo-container {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .collaboration-logo {
+                margin: 10px auto;
+                display: block;
+                text-align: center;
             }
         }
 
@@ -589,7 +600,7 @@
             
             .collaboration-logo {
                 max-width: 100px;
-                margin: 8px;
+                margin: 8px auto;
             }
             
             /* Mobile adjustments for carousel */
@@ -1446,6 +1457,7 @@
     </script>
 </body>
 </html>
+
 
 
 
