@@ -27,7 +27,7 @@ opacity: 1;
 
 
 .carousel-item.active img {
-animation: carousel-zoom-in 1.5s ease-out;
+animation: carousel-zoom-in 2.5s ease-out;
 }
 
 
@@ -44,7 +44,7 @@ transform: translateY(0);
 
 
 .carousel-item.active .carousel-caption {
-animation: carousel-caption-fade 1.5s ease-out 0.5s forwards;
+animation: carousel-caption-fade 2.5s ease-out 0.5s forwards;
 }
 
 
@@ -612,7 +612,7 @@ animation: carousel-caption-fade 1.5s ease-out 0.5s forwards;
 }
 
 .carousel-item.active img {
-    animation: carousel-zoom-in 1.5s ease-out;
+    animation: carousel-zoom-in 2.5s ease-out;
 }
 
 @keyframes carousel-caption-fade {
@@ -627,7 +627,7 @@ animation: carousel-caption-fade 1.5s ease-out 0.5s forwards;
 }
 
 .carousel-item.active .carousel-caption {
-    animation: carousel-caption-fade 1.5s ease-out 0.5s forwards;
+    animation: carousel-caption-fade 2.5s ease-out 0.5s forwards;
 }
     </style>
 </head>
@@ -678,7 +678,7 @@ animation: carousel-caption-fade 1.5s ease-out 0.5s forwards;
     <div class="carousel-container" id="home">
         <div class="lab-heading"><span class="highlight">SAMPRITI</span>: <span class="highlight">Sustainable, data And Memory-centric PRocessIng for nexT generation Innovation</span></div>
         <div class="lab-tagline">Advancing research through brotherhood innovation and collaboration for the sustainable society</div>
-        <div class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000" id="home-carousel">
+<!--         <div class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000" id="home-carousel">
             <div class="carousel-indicators">
                 <button class="active" data-bs-slide-to="0" data-bs-target="#home-carousel" type="button"></button>
                 <button data-bs-slide-to="1" data-bs-target="#home-carousel" type="button"></button>
@@ -719,7 +719,58 @@ animation: carousel-caption-fade 1.5s ease-out 0.5s forwards;
                 <span class="carousel-control-next-icon"></span>
             </button>
         </div>
+    </div> -->
+        <div class="carousel slide carousel-fade" 
+     data-bs-ride="carousel" 
+     data-bs-interval="5000" 
+     data-bs-wrap="true" 
+     id="home-carousel">
+
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#home-carousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#home-carousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#home-carousel" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#home-carousel" data-bs-slide-to="3"></button>
     </div>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="img/carousel/1.jpg" class="d-block w-100" alt="Research Lab">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>Welcome to Our Research Group</h2>
+                <p>Advancing knowledge through innovative research and collaboration</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="img/carousel/3.jpg" class="d-block w-100" alt="Team Discussion">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>Interdisciplinary Collaboration</h2>
+                <p>Working across disciplines to solve complex problems</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="img/carousel/vlsid2025.png" class="d-block w-100" alt="Research Equipment">
+            <div class="carousel-caption d-none d-md-block">
+                <h2>State-of-the-Art Facilities</h2>
+                <p>Utilizing cutting-edge technology for groundbreaking research</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="img/carousel/4.jpg" class="d-block w-100" alt="Research Equipment">
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#home-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#home-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
     <section id="about">
         <div class="container">
             <h2 class="section-title">About Our Lab</h2>
@@ -1402,6 +1453,7 @@ animation: carousel-caption-fade 1.5s ease-out 0.5s forwards;
     </script>
 </body>
 </html>
+
 
 
 
