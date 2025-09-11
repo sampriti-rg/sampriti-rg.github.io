@@ -94,10 +94,10 @@ Then enable GitHub Pages in repo settings.
 
 ## 📜 License
 
-This project is licensed under the **MIT License** – you are free to use, modify, and distribute it with attribution.
+This repository is licensed under the **MIT License** – you are free to use, modify, and distribute it with attribution.
 
 ---
 
-⭐ If you like this project, don’t forget to **star the repo** and share it with your network!
+
 
 
