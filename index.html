@@ -13,575 +13,603 @@
 
 
     :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --light-color: #ecf0f1;
-    --dark-color: #2c3e50;
-}
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            scroll-padding-top: 70px;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+            font-size: 1.1rem;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: white !important;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        /* Carousel animations */
+        @keyframes carousel-zoom-in {
+            from {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    scroll-padding-top: 70px;
-}
+        .carousel-item.active img {
+            animation: carousel-zoom-in 2.5s ease-out;
+        }
 
-.navbar {
-    background-color: var(--primary-color);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+        @keyframes carousel-caption-fade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.navbar-brand {
-    font-weight: 700;
-    color: white !important;
-    font-size: 1.1rem;
-}
+        /* Custom spacing above carousel for lab name & tagline */
+        .carousel-container {
+            margin-top: 150px; /* Increased space for lab name/tagline */
+            text-align: center; /* Center align lab name and tagline */
+        }
 
-.nav-link {
-    color: rgba(255, 255, 255, 0.85) !important;
-    font-weight: 500;
-    transition: color 0.3s;
-    padding: 0.5rem 1rem;
-}
+        /* Adjust carousel size and centering */
+        #home-carousel {
+            margin: 40px auto; /* Center the carousel with top/bottom margin */
+            width: 80%; /* Use 80% width to create side spacing */
+            max-width: 1200px; /* Maximum width for larger screens */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
 
-.nav-link:hover, .nav-link.active {
-    color: white !important;
-}
+        .carousel-item {
+            height: 50vh;
+            min-height: 300px;
+            overflow: hidden;
+        }
 
-section {
-    padding: 60px 0;
-}
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            bottom: 30%;
+        }
 
-.section-title {
-    position: relative;
-    padding-bottom: 15px;
-    margin-bottom: 30px;
-    text-align: center;
-}
+        .carousel-caption h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
 
-.section-title:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: var(--secondary-color);
-}
+        .carousel-caption p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
 
-/* Carousel animations */
-@keyframes carousel-zoom-in {
-    from {
-        transform: scale(1.05);
-        opacity: 0.8;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
+        .carousel-item.active .carousel-caption {
+            animation: carousel-caption-fade 2.5s ease-out 0.5s forwards;
+        }
 
-.carousel-item.active img {
-    animation: carousel-zoom-in 2.5s ease-out;
-}
+        .lab-heading {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .lab-tagline {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+        }
 
-@keyframes carousel-caption-fade {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        .highlight {
+            color: #0056b3;
+            font-weight: bold;
+        }
 
-/* Custom spacing above carousel for lab name & tagline */
-.carousel-container {
-    margin-top: 150px; /* Increased space for lab name/tagline */
-    text-align: left; /* Changed from center to left */
-}
+        /* About section */
+        .about-content {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
 
-/* Adjust carousel size and centering - Modified for left alignment */
-#home-carousel {
-    margin-top: 56px;
-    margin-left: 0; /* Remove left margin */
-    margin-right: 0; /* Remove right margin */
-    width: 100%; /* Full width */
-}
+        /* Research domains */
+        .domain-card {
+            text-align: center;
+            padding: 20px 15px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            margin-bottom: 20px;
+        }
 
-.carousel-item {
-    height: 50vh;
-    min-height: 300px;
-    overflow: hidden;
-}
+        .domain-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
 
-.carousel-caption {
-    background: transparent;
-    padding: 15px;
-    border-radius: 8px;
-    max-width: 90%;
-    margin: 0; /* Remove auto margin */
-    text-align: left; /* Left align caption text */
-    left: 10%; /* Position from left */
-    right: auto; /* Override default right positioning */
-}
+        .domain-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
 
-.carousel-caption h2 {
-    font-size: 1.5rem;
-}
+        /* Team section */
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-.carousel-caption p {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
+        .team-img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 5px solid var(--light-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
 
-.carousel-item.active .carousel-caption {
-    animation: carousel-caption-fade 2.5s ease-out 0.5s forwards;
-}
+        .scholar-details {
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
 
-.lab-heading {
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-    text-align: left; /* Left align lab heading */
-}
-.lab-tagline {
-    font-size: 1rem;
-    font-style: italic;
-    margin-bottom: 5px;
-    text-align: left; /* Left align lab tagline */
-}
+        .scholar-details p {
+            margin-bottom: 5px;
+        }
 
-/* About section */
-.about-content {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 15px;
-    padding: 30px 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
+        .social-links a {
+            display: inline-block;
+            height: 36px;
+            width: 36px;
+            background-color: var(--primary-color);
+            color: white !important;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            margin: 3px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
 
-/* Research domains */
-.domain-card {
-    text-align: center;
-    padding: 20px 15px;
-    border-radius: 10px;
-    background: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
-    height: 100%;
-    margin-bottom: 20px;
-}
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
 
-.domain-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-}
+        .director-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
 
-.domain-icon {
-    font-size: 2.5rem;
-    color: var(--secondary-color);
-    margin-bottom: 15px;
-}
+        .director-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--secondary-color);
+            margin: 0 auto 20px;
+        }
 
-/* Team section */
-.team-member {
-    text-align: center;
-    margin-bottom: 30px;
-}
+        .project-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 25px;
+            height: 100%;
+        }
 
-.team-img {
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    border: 5px solid var(--light-color);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
 
-.scholar-details {
-    font-size: 0.85rem;
-    margin-top: 10px;
-}
+        .project-img {
+            height: 180px;
+            object-fit: cover;
+        }
 
-.scholar-details p {
-    margin-bottom: 5px;
-}
+        .publication-item {
+            padding: 15px;
+            border-left: 3px solid var(--secondary-color);
+            background-color: #f8f9fa;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+        }
 
-.social-links a {
-    display: inline-block;
-    height: 36px;
-    width: 36px;
-    background-color: var(--primary-color);
-    color: white !important;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 36px;
-    margin: 3px;
-    transition: all 0.3s;
-    font-size: 0.9rem;
-}
+        .news-item {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
 
-.social-links a:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-3px);
-}
+        .news-date {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
 
-.director-card {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-}
+        .contact-info {
+            margin-bottom: 20px;
+        }
 
-.director-img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid var(--secondary-color);
-    margin: 0 auto 20px;
-}
+        .contact-icon {
+            font-size: 20px;
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
 
-.project-card {
-    transition: transform 0.3s, box-shadow 0.3s;
-    margin-bottom: 25px;
-    height: 100%;
-}
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+            font-size: 1.2rem;
+        }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
+        .back-to-top.show {
+            opacity: 1;
+        }
 
-.project-img {
-    height: 180px;
-    object-fit: cover;
-}
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0 15px;
+        }
 
-.publication-item {
-    padding: 15px;
-    border-left: 3px solid var(--secondary-color);
-    background-color: #f8f9fa;
-    margin-bottom: 20px;
-    border-radius: 0 5px 5px 0;
-}
+        /* Gallery section */
+        .gallery-item {
+            overflow: hidden;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
 
-.news-item {
-    border-bottom: 1px solid #eee;
-    padding: 15px 0;
-}
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
 
-.news-date {
-    color: var(--secondary-color);
-    font-weight: 600;
-    font-size: 0.9rem;
-}
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
 
-.contact-info {
-    margin-bottom: 20px;
-}
+        /* Blog section */
+        .blog-card {
+            transition: transform 0.3s;
+            margin-bottom: 25px;
+            height: 100%;
+        }
 
-.contact-icon {
-    font-size: 20px;
-    color: var(--secondary-color);
-    margin-right: 10px;
-}
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
 
-.back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    opacity: 0;
-    transition: all 0.3s;
-    z-index: 1000;
-    font-size: 1.2rem;
-}
+        .blog-img {
+            height: 180px;
+            object-fit: cover;
+        }
 
-.back-to-top.show {
-    opacity: 1;
-}
+        /* Collaboration section */
+        .collaboration-logo {
+            text-align: center;
+            padding: 15px;
+            height: 70px;
+            margin: 15px;
+            filter: grayscale(0%);
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
 
-footer {
-    background-color: var(--dark-color);
-    color: white;
-    padding: 30px 0 15px;
-}
+        .collaboration-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
 
-/* Gallery section */
-.gallery-item {
-    overflow: hidden;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
+        .funding-agency {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
 
-.gallery-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.5s;
-}
+        .funding-agency:hover {
+            transform: translateY(-5px);
+        }
 
-.gallery-img:hover {
-    transform: scale(1.05);
-}
+        .agency-logo {
+            height: 70px;
+            margin-bottom: 15px;
+        }
 
-/* Blog section */
-.blog-card {
-    transition: transform 0.3s;
-    margin-bottom: 25px;
-    height: 100%;
-}
+        /* Funding agency logos */
+        .agency-logo {
+            max-width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto;
+            opacity: 1;
+        }
 
-.blog-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
+        /* Collaborating institutions logos */
+        .collaboration-logo {
+            max-width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto;
+            opacity: 1;
+            align: center;
+            padding: 15px;
+        }
 
-.blog-img {
-    height: 180px;
-    object-fit: cover;
-}
+        h6 {
+            font-weight: 600;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+        
+        /* Mobile-specific styles */
+        @media (max-width: 767.98px) {
+            .navbar-brand {
+                font-size: 1rem;
+            }
+            
+            .navbar-nav {
+                text-align: center;
+                padding: 10px 0;
+            }
+            
+            .nav-link {
+                padding: 0.5rem;
+                margin: 2px 0;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 25px;
+            }
+            
+            .carousel-item {
+                height: 40vh;
+                min-height: 250px;
+            }
+            
+            .carousel-caption {
+                padding: 10px;
+            }
+            
+            .carousel-caption h2 {
+                font-size: 1.2rem;
+                margin-bottom: 5px;
+            }
+            
+            .carousel-caption p {
+                font-size: 0.8rem;
+                margin-bottom: 8px;
+            }
+            
+            .carousel-caption .btn {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+            }
+            
+            .director-card {
+                padding: 15px;
+            }
+            
+            .director-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .team-img {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .about-content {
+                padding: 20px 15px;
+            }
+            
+            .project-img, .blog-img {
+                height: 150px;
+            }
+            
+            .gallery-img {
+                height: 180px;
+            }
+            
+            .publication-item {
+                padding: 12px;
+            }
+            
+            footer .col-md-4, footer .col-md-2 {
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            
+            footer .social-links {
+                justify-content: center;
+            }
+            
+            .input-group {
+                flex-direction: column;
+            }
+            
+            .input-group .btn {
+                margin-top: 10px;
+                border-radius: 5px;
+            }
+            
+            /* Mobile adjustments for carousel */
+            #home-carousel {
+                width: 90%;
+            }
+            
+            .lab-heading {
+                font-size: 1.8rem;
+            }
+            
+            .lab-tagline {
+                font-size: 1rem;
+            }
+        }
 
-/* Collaboration section */
-.collaboration-logo {
-    text-align: center;
-    padding: 15px;
-    height: 70px;
-    margin: 15px;
-    filter: grayscale(0%);
-    opacity: 0.7;
-    transition: all 0.3s;
-}
+        @media (max-width: 575.98px) {
+            .navbar-brand {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .carousel-item {
+                height: 35vh;
+                min-height: 200px;
+            }
+            
+            .carousel-caption h2 {
+                font-size: 1rem;
+            }
+            
+            .carousel-caption p {
+                display: none;
+            }
+            
+            .director-img {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .team-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .domain-icon {
+                font-size: 2rem;
+            }
+            
+            .agency-logo {
+                max-width: 120px;
+            }
+            
+            .collaboration-logo {
+                max-width: 100px;
+                margin: 8px;
+            }
+            
+            /* Mobile adjustments for carousel */
+            #home-carousel {
+                width: 95%;
+            }
+            
+            .lab-heading {
+                font-size: 1.6rem;
+            }
+            
+            .lab-tagline {
+                font-size: 0.9rem;
+            }
+        }
 
-.collaboration-logo:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-}
+        /* Fix for navbar toggler alignment */
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+            font-size: 1.1rem;
+        }
 
-.funding-agency {
-    text-align: center;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    transition: transform 0.3s;
-}
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
 
-.funding-agency:hover {
-    transform: translateY(-5px);
-}
-
-.agency-logo {
-    height: 70px;
-    margin-bottom: 15px;
-}
-
-/* Funding agency logos */
-.agency-logo {
-    max-width: 150px;
-    height: auto;
-    display: block;
-    margin: 0 auto 10px auto;
-    opacity: 1;
-}
-
-/* Collaborating institutions logos */
-.collaboration-logo {
-    max-width: 150px;
-    height: auto;
-    display: block;
-    margin: 0 auto 10px auto;
-    opacity: 1;
-    padding: 15px;
-}
-
-h6 {
-    font-weight: 600;
-    margin-top: 10px;
-    font-size: 0.95rem;
-}
-
-/* Mobile-specific styles */
-@media (max-width: 767.98px) {
-    .navbar-brand {
-        font-size: 1rem;
-    }
-    
-    .navbar-nav {
-        text-align: center;
-        padding: 10px 0;
-    }
-    
-    .nav-link {
-        padding: 0.5rem;
-        margin: 2px 0;
-    }
-    
-    section {
-        padding: 40px 0;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 25px;
-    }
-    
-    .carousel-item {
-        height: 40vh;
-        min-height: 250px;
-    }
-    
-    .carousel-caption {
-        padding: 10px;
-        left: 5%; /* Adjust for mobile */
-        right: 5%;
-    }
-    
-    .carousel-caption h2 {
-        font-size: 1.2rem;
-        margin-bottom: 5px;
-    }
-    
-    .carousel-caption p {
-        font-size: 0.8rem;
-        margin-bottom: 8px;
-    }
-    
-    .carousel-caption .btn {
-        padding: 5px 10px;
-        font-size: 0.8rem;
-    }
-    
-    .director-card {
-        padding: 15px;
-    }
-    
-    .director-img {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .team-img {
-        width: 140px;
-        height: 140px;
-    }
-    
-    .about-content {
-        padding: 20px 15px;
-    }
-    
-    .project-img, .blog-img {
-        height: 150px;
-    }
-    
-    .gallery-img {
-        height: 180px;
-    }
-    
-    .publication-item {
-        padding: 12px;
-    }
-    
-    footer .col-md-4, footer .col-md-2 {
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    
-    footer .social-links {
-        justify-content: center;
-    }
-    
-    .input-group {
-        flex-direction: column;
-    }
-    
-    .input-group .btn {
-        margin-top: 10px;
-        border-radius: 5px;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .navbar-brand {
-        font-size: 0.9rem;
-    }
-    
-    .section-title {
-        font-size: 1.6rem;
-    }
-    
-    .carousel-item {
-        height: 35vh;
-        min-height: 200px;
-    }
-    
-    .carousel-caption h2 {
-        font-size: 1rem;
-    }
-    
-    .carousel-caption p {
-        display: none;
-    }
-    
-    .director-img {
-        width: 130px;
-        height: 130px;
-    }
-    
-    .team-img {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .domain-icon {
-        font-size: 2rem;
-    }
-    
-    .agency-logo {
-        max-width: 120px;
-    }
-    
-    .collaboration-logo {
-        max-width: 100px;
-        margin: 8px;
-    }
-}
-
-/* Fix for navbar toggler alignment */
-.navbar-toggler {
-    border: none;
-    padding: 0.25rem 0.5rem;
-    font-size: 1.1rem;
-}
-
-.navbar-toggler:focus {
-    box-shadow: none;
-}
-
-/* Ensure proper spacing in mobile navbar */
-.navbar-collapse {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 5px;
-}
-
-.highlight {
-    color: #0056b3;
-    font-weight: bold;
-}
+        /* Ensure proper spacing in mobile navbar */
+        .navbar-collapse {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 5px;
+        }
     </style>
 </head>
 
@@ -1406,6 +1434,7 @@ h6 {
     </script>
 </body>
 </html>
+
 
 
 
